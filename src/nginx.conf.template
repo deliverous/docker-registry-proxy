@@ -43,7 +43,7 @@ http {
     ##
 
     upstream docker-registry {
-      server localhost:5000;
+      server {{ replace .Env.REGISTRY_PORT 'tcp://', 'http://' }};
     }
 
     server {
